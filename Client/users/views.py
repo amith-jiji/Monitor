@@ -38,8 +38,8 @@ def loginView(request):
 def dashboardView(request):
     return render(request, 'dashboard.html')
 
-def camera1View(request):
-    return render(request, 'camera1.html')
+def cameraView(request ,id):
+    return render(request, 'camera.html', {'id':id})
 
-def camera2View(request):
-    return render(request, 'camera2.html')
+def reportView(request ,id):
+    return render(request, 'report.html', {'id':id})

@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>Video Live Stream</title>
+  </head>
+  <body>
+    <h1>Video Live Stream {{ id }}</h1>
+    <img src="http://127.0.0.1:8000/camera{{ id }}/video_feed_{{ id }}">
+    <button onclick="location.href='{% url 'report' id %}'">Generate Report</button>
+  </body>
+</html>
