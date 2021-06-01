@@ -35,6 +35,14 @@ def loginView(request):
 
     return render(request, 'index.html')
 
+def logout(request):
+    try:
+        del request.session['uid']
+    except:
+        pass
+    return redirect('login')
+
+
 def dashboardView(request):
     return render(request, 'dashboard.html')
 
@@ -44,9 +52,3 @@ def cameraView(request ,id):
 def reportView(request ,id):
     return render(request, 'report.html', {'id':id})
 
-def logout(request):
-    try:
-        del request.session['uid']
-    except:
-        pass
-    return render(request,"index.html")

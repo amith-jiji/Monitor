@@ -6,29 +6,23 @@
 {% block link %}
         <link rel="stylesheet" type="text/css" href="{% static 'dashboard.css' %}">
 {% endblock %}
-    
-<body>
-{% block content %}
-<style></style>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+{% block navbar %}
 <div>
-        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">Social Distance Monitoring</a>
-                
-                <ul class="navbar-nav px-3">
-                  <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="{% url 'log' %}">Sign out</a>
-                  </li>
-                </ul>
-              </nav>
-
-
-
-        
-<div class ="left">      
-<button onclick="location.href='{% url 'camera' 1 %}'">Camera 1</button>
-<button onclick="location.href='{% url 'camera' 2 %}'">Camera 2</button> 
-        
-</div> </div>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Social Distance Monitoring</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 {% endblock %}
-</body>
+
+{% block content %}
+<div class ="left mt-5">
+    <button onclick="location.href='{% url 'camera' 1 %}'">Camera 1</button>
+    <button onclick="location.href='{% url 'camera' 2 %}'">Camera 2</button>
+</div>
+{% endblock %}
