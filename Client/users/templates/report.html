@@ -4,6 +4,8 @@
 {% block title %} Report 1 {% endblock %}
 
 {% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lightbox.css' %}" />
 {% endblock %}
 
 {% block navbar %}
@@ -11,6 +13,7 @@
 
 {% block content %}
     <h1>Report {{ id }}</h1>
+
     <table width="100%">
       <tr>
         <th>Date</th>
@@ -21,8 +24,12 @@
         <tr>
           <td>{{date}}</td>
           <td>{{time}}</td>
-          <td><img src={{url}} height="250px" width="250px"></td>
+          <td>
+            <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="250px" width="400px"></a>
+          </td>
         </tr>
       {% endfor %}
     </table>
+
+     <script src="{% static 'lightbox-plus-jquery.js' %}"></script>
 {% endblock %}
