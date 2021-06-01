@@ -5,9 +5,10 @@ body
 
 div
 {
-    position:absolute;
-    right:10px;
-    top:5px;
+    position:relative;
+    
+    left:50px;
+    top:30px;
 }
 
 p
