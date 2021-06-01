@@ -34,7 +34,7 @@ ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 def Camera2():
     print("Entered Camera 2")
-    video = cv2.VideoCapture('socialdistance/mylib/videos/test1.mp4')
+    video = cv2.VideoCapture('socialdistance/mylib/videos/test.mp4')
     Camera2.count = 0
     Camera2.now = datetime.now()
     while True:
@@ -128,7 +128,7 @@ def Camera2():
             if Camera2.count == 0 or (cur - Camera2.now).total_seconds() > 10:
                 Camera2.now = cur
                 Camera2.count += 1
-                current_time = cur.strftime("_%d_%m_%Y_%H_%M_%S")
+                current_time = cur.strftime("%d_%m_%Y_%H_%M_%S")
                 cv2.imwrite("extract/camera_2_frame%s.jpg" % current_time, frame)  # save frame as JPEG file
                 path_on_cloud = "camera2/" + current_time + ".jpg"
                 storage.child(path_on_cloud).put("extract/camera_2_frame%s.jpg" % current_time)

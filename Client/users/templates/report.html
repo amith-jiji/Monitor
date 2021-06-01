@@ -1,9 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Video Live Stream</title>
-  </head>
-  <body>
+{% extends 'index.html'%}
+{% load static %}
+
+{% block title %} Report 1 {% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
     <h1>Report {{ id }}</h1>
-  </body>
-</html>
+    <table width="100%">
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Image</th>
+      </tr>
+      {% for date,time,url in data %}
+        <tr>
+          <td>{{date}}</td>
+          <td>{{time}}</td>
+          <td><img src={{url}} height="250px" width="250px"></td>
+        </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

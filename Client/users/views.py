@@ -50,5 +50,7 @@ def cameraView(request ,id):
     return render(request, 'camera.html', {'id':id})
 
 def reportView(request ,id):
-    return render(request, 'report.html', {'id':id})
+    data = database.child('camera' + str(id)).get().val()
+    data = [('/'.join(i[0][:10].split('_')),':'.join(i[0][11:].split('_')),i[1][i[0]]) for i in list(data.items())]
+    return render(request, 'report.html', {'id':id,'data':data})
 

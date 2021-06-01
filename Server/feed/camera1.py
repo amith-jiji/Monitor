@@ -129,7 +129,7 @@ def Camera1():
             if Camera1.count == 0 or (cur - Camera1.now).total_seconds() > 10:
                 Camera1.now = cur
                 Camera1.count += 1
-                current_time = cur.strftime("_%d_%m_%Y_%H_%M_%S")
+                current_time = cur.strftime("%d_%m_%Y_%H_%M_%S")
                 cv2.imwrite("extract/camera_1_frame%s.jpg" % current_time, frame)  # save frame as JPEG file
                 path_on_cloud = "camera1/" + current_time + ".jpg"
                 storage.child(path_on_cloud).put("extract/camera_1_frame%s.jpg" % current_time)
