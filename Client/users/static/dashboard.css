@@ -1,83 +1,44 @@
-{% extends 'index.html'%}
-{% load static %}
+body
+{
+     background-color: rgb(235, 233, 255);
+    /*background-image: url(https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);*/
+}
 
-{% block title %} Dashboard {% endblock %}
+#button-container
+{
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
 
-{% block link %}
-        <link rel="stylesheet" type="text/css" href="{% static 'dashboard.css' %}">
-{% endblock %}
+.navbar{
+    position:relative;
+}
 
-{% block navbar %}
-    <div>
-        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
-            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="#">Social Distance Monitoring</a>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-{% endblock %}
+.camera-button
+{
+    background-color: rgba(7, 179, 185, 0.753);
+    color: white;
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
 
-{% block content %}
+    
+.carousel-item{
+    
+    width: 100%;
+    
+}
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators ">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
+.carousel-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
 
-        <div class="carousel-inner" >
-            <div class="carousel-item active" style="background: #41107a">
-                <img src="https://i0.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/OH_COVID19_Symptoms_SocialAsset_Facebook.png?w=1200&ssl=1"  class="carousel-image" alt="Be Safe" class="carousel-image" height="400px" alt="Be Supportive" class="carousel-image d-block w-65 ">
-            </div>
-            <div class="carousel-item" style="background: #0d2074">
-                <img src="https://i1.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/5-Prevention.png?resize=1536%2C864&ssl=1" class="carousel-image" height="400px" alt="Be Supportive" class="carousel-image d-block w-65 ">
-            </div>
-            <div class="carousel-item" style="background :#05b69b; " >
-              <img  src="https://arogyakeralam.gov.in/wp-content/uploads/2020/04/iecintro.jpg" height="400px" class="carousel-image d-block w-65 "  alt="Be Ready">
-            </div>
-            <div class="carousel-item" style="background :#95c4c9"  >
-                <img  src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v871batch2-sasi-presentation-02_1_2.jpg?w=1000&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d5b2c31acb8b13640cd378ac609d68d8" height="400px" class="carousel-image d-block w-65 "  alt="Be Ready">
-              </div>
-            
-         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <div class="d-flex justify-content-around" >
-        <div class="d-flex flex-row" >
-            <div class="p-2" >
-                <div class="card" style="width: 15rem; height: 15rem; ">
-                    <img src="https://cdn.icon-icons.com/icons2/2768/PNG/512/location_icon_176656.png" class="card-img-top">
-                    <div class="card-body" >
-                        <h5 class="card-title">Camera 1</h5>
-              
-                        <a href="{% url 'camera' 1 %}" class="btn btn-primary">Go to feed</a>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2">
-                <div class="card" style="width: 15rem; height: 15rem; ">
-                    <img src="https://cdn.icon-icons.com/icons2/2768/PNG/512/location_icon_176656.png" class="card-img-top">
-                    <div class="card-body" >
-                        <h5 class="card-title">Camera 2</h5>
-              
-                        <a href="{% url 'camera' 2 %}" class="btn btn-primary">Go to feed</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
