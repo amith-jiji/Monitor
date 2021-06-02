@@ -1,6 +1,6 @@
 body
 {
-     background-color: #e8e1d9;
+     background-color: rgb(235, 233, 255);
     /*background-image: url(https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);*/
 }
 
@@ -10,6 +10,10 @@ body
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+}
+
+.navbar{
+    position:relative;
 }
 
 .camera-button
@@ -24,7 +28,7 @@ body
 
     
 .carousel-item{
-    background:#95c4c9;
+    
     width: 100%;
     
 }
@@ -36,8 +40,5 @@ body
     
 }
 
-.div-pos{
-    position: relative;
-    top: 30px;
-}
+
 
