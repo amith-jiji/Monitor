@@ -22,14 +22,22 @@ body
     border-radius: 5px;
 }
 
+    
 .carousel-item{
-    background:#777;
+    background:#95c4c9;
     width: 100%;
+    
 }
 
 .carousel-image{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    
 }
+
+.div-pos{
+    position: relative;
+    top: 30px;
+}
+
