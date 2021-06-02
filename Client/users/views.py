@@ -19,6 +19,9 @@ auth = firebase.auth()
 database = firebase.database()
 
 def loginView(request):
+    if 'uid' in request.session:
+        return redirect('dashboard')
+
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['pass']

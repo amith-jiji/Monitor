@@ -8,21 +8,21 @@
 {% endblock %}
 
 {% block navbar %}
-<div>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Social Distance Monitoring</a>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    <div>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Social Distance Monitoring</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class ="left mt-5">
-    <button onclick="location.href='{% url 'camera' 1 %}'">Camera 1</button>
-    <button onclick="location.href='{% url 'camera' 2 %}'">Camera 2</button>
-</div>
+    <div id="button" class ="left mt-5">
+        <button onclick="location.href='{% url 'camera' 1 %}'">Camera 1</button>
+        <button onclick="location.href='{% url 'camera' 2 %}'">Camera 2</button>
+    </div>
 {% endblock %}
