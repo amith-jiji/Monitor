@@ -1,20 +1,56 @@
 {% extends 'index.html'%}
 {% load static %}
 
-{% block title %} Camera 1 {% endblock %}
+{% block title %} Camera {{ id }} {% endblock %}
 
 {% block link %}
         <link rel="stylesheet" type="text/css" href="{% static 'camera.css' %}">
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
 {% endblock %}
 
 {% block navbar %}
+    <div>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="{% url 'dashboard' %}" style="font-family: 'Trebuchet MS'">Social Distance Monitoring</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link p-2" href="{% url 'logout' %}" style="font-family: 'Trebuchet MS'">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 {% endblock %}
 
 {% block content %}
     <div class="box">
-        <h1 class="heading">Live Stream Camera {{ id }}</h1>
-        <img class="stream" src="http://127.0.0.1:8000/camera1/video_feed_1">
-        <button class="generate " onclick="location.href='{% url 'report' id %}'">Generate Report</button>
+        <div class="innerboxbutton">
+            <h1 style="font-family: 'Trebuchet MS';margin-left: 15%">Live Stream</h1>
+            <img src="{% static 'location1.png' %}" width="40px" height="45px" alt="" style="margin-left: 5%">
+            <h1 style="font-family: 'Trebuchet MS';margin-left: 1%">{{ data.location }}</h1>
+            <button class="generate " onclick="location.href='{% url 'report' id %}'">Generate Report</button>
+        </div>
+        <div class="innerboxstream">
+            <img class="stream" src="http://127.0.0.1:8000/camera1/video_feed_1">
+            <div id="map"></div>
+        </div>
     </div>
+
+    <script>
+	    mapboxgl.accessToken = 'pk.eyJ1Ijoic29jaWFsZGlzdGFuY2UiLCJhIjoiY2twZ3YzeDh3MHZtMzJwcmlkamF1eWl4MSJ9.1rna4nnAacReTrMz5VbynA';
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [{{ data.lon }}, {{ data.lat }}], // starting position
+            zoom: 9 // starting zoom
+        });
+
+        var marker = new mapboxgl.Marker()
+            .setLngLat([{{ data.lon }}, {{ data.lat }}])
+            .addTo(map);
+
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl());
+    </script>
 
 {% endblock %}

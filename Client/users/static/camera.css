@@ -1,19 +1,19 @@
-.heading
-{
-        font-family: 'Trebuchet MS', serif;
-}
-
 .stream
 {
         background: url("loading.gif") no-repeat center;
         background-size: 250px;
-        height:28rem;
+        height:25rem;
         width:50rem;
+}
+
+.navbar
+{
+    position:relative;
 }
 
 .box
 {
-        position: absolute;
+        position: relative;
         display:flex;
         flex-direction: column;
         align-items: center;
@@ -24,7 +24,6 @@
 
 .generate
 {
-     margin: 10px;
      background-color: #008CBA;
      border:none;
      font-family: "Trebuchet MS";
@@ -34,11 +33,35 @@
      text-decoration: none;
      display: inline-block;
      font-size: 18px;
-
+     margin-left: auto;
+     margin-right: 7%;
 }
 
 .generate:hover
 {
      
      opacity: 90%
+}
+
+.innerboxstream
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.innerboxbutton
+{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#map
+{
+    width: 27rem;
+    height: 25rem;
 }

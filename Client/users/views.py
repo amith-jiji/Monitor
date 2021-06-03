@@ -18,6 +18,9 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 database = firebase.database()
 
+metadata = dict(database.child("data").get().val())
+
+
 def loginView(request):
     if 'uid' in request.session:
         return redirect('dashboard')
@@ -38,6 +41,7 @@ def loginView(request):
 
     return render(request, 'index.html')
 
+
 def logout(request):
     try:
         del request.session['uid']
@@ -47,17 +51,19 @@ def logout(request):
 
 
 def dashboardView(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard.html', metadata)
 
-def cameraView(request ,id):
-    return render(request, 'camera.html', {'id':id})
 
-def reportView(request ,id):
+def cameraView(request, id):
+    return render(request, 'camera.html', {'id': id, 'data': metadata['camera' + str(id)]})
+
+
+def reportView(request, id):
     data = database.child('camera' + str(id)).get().val()
     data = list(data.items())[::-1]
     if data is None:
-        data={}
+        data = {}
     else:
-        data = [('/'.join(i[0][:10].split('_')),':'.join(i[0][11:].split('_')),i[1][i[0]]) for i in data][:min(30,len(data))]
-    return render(request, 'report.html', {'id':id,'data':data})
-
+        data = [('/'.join(i[0][:10].split('_')), ':'.join(i[0][11:].split('_')), i[1][i[0]]) for i in data][
+               :min(30, len(data))]
+    return render(request, 'report.html', {'id': id, 'data': data})

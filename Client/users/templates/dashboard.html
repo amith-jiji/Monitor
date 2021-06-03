@@ -61,7 +61,7 @@
                 <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
                     <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
                     <div class="card-body" >
-                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">Camera 1</h5>
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera1.location }}</h5>
                         <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
                     <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
                     <div class="card-body" >
-                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">Camera 2</h5>
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera2.location }}</h5>
                         <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
