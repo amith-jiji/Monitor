@@ -25,8 +25,8 @@
 
         {% block content %}
 
-         <div id="bod" class="d-flex align-items-center min-vh-100">
-            <div class="container bg-white border pl-3 pr-3 pt-4"  align="center" style="border-radius:7px; width:300px;">
+         <div class="box">
+            <div class="container bg-white border pl-3 pr-3 pt-4"  align="center" style="border-radius:7px; width:300px; height:300px;">
 
             <form action="{%url 'login' %}" method="post">
                 {% csrf_token %}

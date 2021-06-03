@@ -22,7 +22,7 @@ ALERT = False
 # Set mail to receive the real-time alerts. E.g., 'xxx@gmail.com'.
 MAIL = 'ajithpadmalochanan@gmail.com'
 # Set if GPU should be used for computations; Otherwise uses the CPU by default.
-USE_GPU = False
+USE_GPU = True
 # Define the max/min safe distance limits (in pixels) between 2 people.
 MAX_DISTANCE = 80
 MIN_DISTANCE = 50
