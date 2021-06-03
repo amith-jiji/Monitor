@@ -26,7 +26,7 @@ input[type="submit"]
 
 button
 {
-    background-color: rgba(7, 179, 185, 0.753);
+    background-color: #0f6bb6;
     color: white;
     width: 150px;
     height: 30px;
@@ -41,4 +41,5 @@ button
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    opacity: 95%;
 }
