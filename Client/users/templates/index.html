@@ -26,22 +26,22 @@
         {% block content %}
 
          <div class="box">
-            <div class="container bg-white border pl-3 pr-3 pt-4"  align="center" style="border-radius:7px; width:300px; height:300px;">
+            <div class="container border pl-3 pr-3 pt-4"  align="center" style="border-radius:7px; width:300px; height:300px; background: #e8e1d9">
 
             <form action="{%url 'login' %}" method="post">
                 {% csrf_token %}
                 <br>
                 <!-- Enter Your Email: -->
                 
-                <label for="Email">Email address</label>
-                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                <label for="Email" style="font-family: 'Trebuchet MS'; font-size: 18px">Email address</label>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter Email" name="email" width="15px">
                 
                 <!-- Enter Your Password: -->
                 <br>
-                <label for="Password">Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Password" name="pass">
+                <label for="Password" style="font-family: 'Trebuchet MS'; font-size: 18px">Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Enter Password" name="pass" width="15px">
                 <br>
-                <button class="btn-primary"  type="submit">Login</button>
+                <button class="btn-primary"  type="submit" style="font-family: 'Trebuchet MS'; font-size: 16px">Login</button>
                 <br> <br>
                 {% if messages %}
                     {% for message in messages %}
