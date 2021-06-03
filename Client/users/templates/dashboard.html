@@ -10,10 +10,10 @@
 {% block navbar %}
     <div>
         <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
-            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="#">Social Distance Monitoring</a>
+            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="#" style="font-family: 'Trebuchet MS'">Social Distance Monitoring</a>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
+                    <a class="nav-link p-2" href="{% url 'logout' %}" style="font-family: 'Trebuchet MS'">Sign out</a>
                 </li>
             </ul>
         </nav>
@@ -58,19 +58,19 @@
     </div>
 
     <div class="d-flex justify-content-around p-2 mt-2" >
-                <div class="card align-items-md-center" style="width: 25rem; height: 17rem; text-align: center; ">
+                <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
                     <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
                     <div class="card-body" >
-                        <h5 class="card-title">Camera 1</h5>
-                        <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2">Go to feed</a>
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">Camera 1</h5>
+                        <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
 
-                <div class="card align-items-md-center" style="width: 25rem; height: 17rem; text-align: center; ">
+                <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
                     <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
                     <div class="card-body" >
-                        <h5 class="card-title">Camera 2</h5>
-                        <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2">Go to feed</a>
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">Camera 2</h5>
+                        <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
     </div>
