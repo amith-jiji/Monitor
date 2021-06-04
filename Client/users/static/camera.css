@@ -1,9 +1,9 @@
 .stream
 {
-        background: url("loading.gif") no-repeat center;
-        background-size: 250px;
-        height:25rem;
-        width:50rem;
+        background: url("loading_no_bg.gif") no-repeat center;
+        background-size: 300px;
+        height:400px;
+        width:800px;
 }
 
 .navbar
@@ -62,6 +62,6 @@
 
 #map
 {
-    width: 27rem;
-    height: 25rem;
+    height: 400px;
+    width: 400px;
 }
