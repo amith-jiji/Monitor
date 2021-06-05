@@ -64,6 +64,5 @@ def reportView(request, id):
     if data is None:
         data = {}
     else:
-        data = [('/'.join(i[0][:10].split('_')), ':'.join(i[0][11:].split('_')), i[1][i[0]]) for i in data][
-               :min(30, len(data))]
+        data = [('/'.join(i[0][:10].split('_')), ':'.join(i[0][11:].split('_')), i[1][i[0]]) for i in data]
     return render(request, 'report.html', {'id': id, 'data': data})

@@ -7,11 +7,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lightbox.css' %}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"/>
-    <script type='text/javascript' src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js'></script>
+    <script type='text/javascript' src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 
 {% endblock %}
 
 {% block navbar %}
+    <div>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="{% url 'dashboard' %}" style="font-family: 'Trebuchet MS'">Social Distance Monitoring</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link p-2" href="{% url 'logout' %}" style="font-family: 'Trebuchet MS'">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -34,7 +44,7 @@
                   <td>{{date}}</td>
                   <td>{{time}}</td>
                   <td>
-                    <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="250px" width="400px"></a>
+                    <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="300px" width="480px"></a>
                   </td>
                 </tr>
               {% endfor %}
@@ -42,6 +52,7 @@
         </table>
     </div>
 
+    <!--<script src="{% static 'lightbox-plus-jquery.js' %}"></script>!-->
     <script>
         $(function () {
             $('.table-button').click(function () {
