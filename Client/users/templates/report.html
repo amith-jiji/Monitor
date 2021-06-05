@@ -6,6 +6,8 @@
 {% block link %}
     <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lightbox.css' %}" />
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 {% endblock %}
 
 {% block navbar %}
@@ -16,7 +18,7 @@
         <h1 style="font-family: 'Trebuchet MS';text-decoration: underline;text-underline-position: under">Report</h1>
         <button class="table-button" style="background: none;"><img src="{% static 'print.png' %}" style="width: 65px;height: 70px;"></button>
     </div>
-    <table class="table align-middle table-hover mt-5">
+    <table class="table align-middle table-hover mt-5" id="data_table">
         <thead class="table-dark">
           <tr>
             <th>Date</th>
@@ -40,14 +42,19 @@
         $(function () {
             $('.table-button').click(function () {
                 var pageTitle = 'Report',
-                    win = window.open('', 'Print', 'width=500,height=300');
+                    win = window.open('', 'Print', 'width=800,height=500');
                 win.document.write(`<html><head><title>${pageTitle}</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"></head><body>${$('.table')[0].outerHTML}</body></html>`);
                 win.document.close();
                 win.print();
                 win.close();
+                location.reload();
                 return false;
             });
         });
+
+        $(document).ready( function () {
+            $('#data_table').DataTable();
+        } );
     </script>
      <script src="{% static 'lightbox-plus-jquery.js' %}"></script>
 {% endblock %}
