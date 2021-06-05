@@ -12,23 +12,29 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Report {{ id }}</h1>
-    <button class="btn">Print Table</button>
-    <table width="100%" >
-      <tr>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Image</th>
-      </tr>
-      {% for date,time,url in data %}
-        <tr>
-          <td>{{date}}</td>
-          <td>{{time}}</td>
-          <td>
-            <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="250px" width="400px"></a>
-          </td>
-        </tr>
-      {% endfor %}
+    <div class="heading">
+        <h1 style="font-family: 'Trebuchet MS';text-decoration: underline;text-underline-position: under">Report</h1>
+        <button style="background: none;"><img src="{% static 'print.png' %}" style="width: 65px;height: 70px;"></button>
+    </div>
+    <table class="table align-middle table-hover mt-5">
+        <thead class="table-dark">
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for date,time,url in data %}
+            <tr>
+              <td>{{date}}</td>
+              <td>{{time}}</td>
+              <td>
+                <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="250px" width="400px"></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
     </table>
 
      <script src="{% static 'lightbox-plus-jquery.js' %}"></script>
