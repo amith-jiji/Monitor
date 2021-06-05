@@ -6,8 +6,11 @@
 {% block link %}
     <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lightbox.css' %}" />
+    <!-- datatable
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"/>
-    <script type='text/javascript' src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type='text/javascript' src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script> -->
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/jquery.dynatable.css" />
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery.dynatable.js'></script>
 
 {% endblock %}
 
@@ -52,7 +55,6 @@
         </table>
     </div>
 
-    <!--<script src="{% static 'lightbox-plus-jquery.js' %}"></script>!-->
     <script>
         $(function () {
             $('.table-button').click(function () {
@@ -66,12 +68,19 @@
                 return false;
             });
         });
+
+        $(document).ready(function() {
+            $('#data_table').dynatable();
+        } );
     </script>
 
+    <!-- datatable
     <script>
         $(document).ready(function() {
             $('#data_table').DataTable();
         } );
-    </script>
+    </script> -->
+
+    <!--<script src="{% static 'lightbox-plus-jquery.js' %}"></script>!-->
 
 {% endblock %}
