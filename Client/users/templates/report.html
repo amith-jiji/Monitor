@@ -1,0 +1,86 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block title %} Report 1 {% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lightbox.css' %}" />
+    <!-- datatable
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"/>
+    <script type='text/javascript' src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script> -->
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/dynatable-docs-assets/css/jquery.dynatable.css" />
+    <script type='text/javascript' src='https://s3.amazonaws.com/dynatable-docs-assets/js/jquery.dynatable.js'></script>
+
+{% endblock %}
+
+{% block navbar %}
+    <div>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="{% url 'dashboard' %}" style="font-family: 'Trebuchet MS'">Social Distance Monitoring</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link p-2" href="{% url 'logout' %}" style="font-family: 'Trebuchet MS'">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="heading">
+        <h1 style="font-family: 'Trebuchet MS';text-decoration: underline;text-underline-position: under">Report</h1>
+        <button class="table-button" style="background: none;"><img src="{% static 'print.png' %}" style="width: 65px;height: 70px;"></button>
+    </div>
+    <div class="table-container">
+        <table class="table align-middle table-hover mt-5" id="data_table">
+            <thead class="table-dark">
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for date,time,url in data %}
+                <tr>
+                  <td>{{date}}</td>
+                  <td>{{time}}</td>
+                  <td>
+                    <a href={{url}} data-lightbox="roadtrip"><img id="myImg" src={{url}} height="300px" width="480px"></a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(function () {
+            $('.table-button').click(function () {
+                var pageTitle = 'Report',
+                    win = window.open('', 'Print', 'width=800,height=500');
+                win.document.write(`<html><head><title>${pageTitle}</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"></head><body>${$('.table')[0].outerHTML}</body></html>`);
+                win.document.close();
+                win.print();
+                win.close();
+                location.reload();
+                return false;
+            });
+        });
+
+        $(document).ready(function() {
+            $('#data_table').dynatable();
+        } );
+    </script>
+
+    <!-- datatable
+    <script>
+        $(document).ready(function() {
+            $('#data_table').DataTable();
+        } );
+    </script> -->
+
+    <!--<script src="{% static 'lightbox-plus-jquery.js' %}"></script>!-->
+
+{% endblock %}

@@ -32,13 +32,14 @@ if config.USE_GPU:
 ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
-def Camera2():
-    print("Entered Camera 2")
-    video = cv2.VideoCapture('socialdistance/mylib/videos/test1.mp4')
-    Camera2.count = 0
-    Camera2.now = datetime.now()
+
+def Camera1():
+    print("Entered Camera 1")
+    video = cv2.VideoCapture('socialdistance/mylib/videos/test.mp4')
+    Camera1.count = 0
+    Camera1.now = datetime.now()
     while True:
-        print("Processsing Frames 2")
+        print("Processsing Frames 1")
 
         (grabbed, frame) = video.read()
 
@@ -112,8 +113,8 @@ def Camera2():
         # ------------------------------Alert function----------------------------------#
 
         if len(serious) >= config.Threshold:
-            if Camera2.count == 0:
-                Camera2.now = datetime.now()
+            if Camera1.count == 0:
+                Camera1.now = datetime.now()
 
             cv2.putText(frame, "-ALERT: Violations over limit-", (10, frame.shape[0] - 80),
                         cv2.FONT_HERSHEY_COMPLEX, 0.60, (0, 0, 255), 2)
@@ -125,21 +126,21 @@ def Camera2():
 
             cur = datetime.now()
 
-            if Camera2.count == 0 or (cur - Camera2.now).total_seconds() > 10:
-                Camera2.now = cur
-                Camera2.count += 1
-                current_time = cur.strftime("_%d_%m_%Y_%H_%M_%S")
-                cv2.imwrite("extract/camera_2_frame%s.jpg" % current_time, frame)  # save frame as JPEG file
-                path_on_cloud = "camera2/" + current_time + ".jpg"
-                storage.child(path_on_cloud).put("extract/camera_2_frame%s.jpg" % current_time)
+            if Camera1.count == 0 or (cur - Camera1.now).total_seconds() > 10:
+                Camera1.now = cur
+                Camera1.count += 1
+                current_time = cur.strftime("%d_%m_%Y_%H_%M_%S")
+                cv2.imwrite("extract/camera_1_frame%s.jpg" % current_time, frame)  # save frame as JPEG file
+                path_on_cloud = "camera1/" + current_time + ".jpg"
+                storage.child(path_on_cloud).put("extract/camera_1_frame%s.jpg" % current_time)
                 url = storage.child(path_on_cloud).get_url(user['idToken'])
                 data = {current_time: url}
-                database.child("camera2").child(current_time).set(data)
-                os.remove("extract/camera_2_frame%s.jpg" % current_time)
+                database.child("camera1").child(current_time).set(data)
+                os.remove("extract/camera_1_frame%s.jpg" % current_time)
                 print('Read a new frame: ', frame)
 
         else:
-            Camera2.count = 0
+            Camera1.count = 0
 
         # config.ALERT = False
         # ------------------------------------------------------------------------------#

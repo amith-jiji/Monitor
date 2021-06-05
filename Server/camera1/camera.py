@@ -42,20 +42,7 @@ class VideoCamera1(object):
 
     def get_frame(self):
 
-        # We are using Motion JPEG, but OpenCV defaults to capture raw images,
-        # so we must encode it into JPEG in order to correctly display the
-        # video stream.
-
-        # read the next frame from the file
-        if config.Thread:
-            cap = thread.ThreadingClass('socialdistance/mylib/videos/test.mp4')
-
-        # read the next frame from the file
-        if config.Thread:
-            frame = cap.read()
-
-        else:
-            (grabbed, frame) = self.video.read()
+        (grabbed, frame) = self.video.read()
 
         # resize the frame and then detect people (and only people) in it
         frame = imutils.resize(frame, width=700)
@@ -123,42 +110,6 @@ class VideoCamera1(object):
         text1 = "Total abnormal violations: {}".format(len(abnormal))
         cv2.putText(frame, text1, (10, frame.shape[0] - 25),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.70, (0, 255, 255), 2)
-
-        '''# ------------------------------Alert function----------------------------------#
-
-        if len(serious) >= config.Threshold:
-
-            if VideoCamera.count == 0:
-                VideoCamera.now=datetime.now()
-
-            cv2.putText(frame, "-ALERT: Violations over limit-", (10, frame.shape[0] - 80),
-                        cv2.FONT_HERSHEY_COMPLEX, 0.60, (0, 0, 255), 2)
-            if config.ALERT:
-                print("")
-                print('[INFO] Sending mail...')
-                Mailer().send(config.MAIL)
-                print('[INFO] Mail sent')
-
-            cur = datetime.now()
-
-            if VideoCamera.count == 0 or (cur - VideoCamera.now).total_seconds()>10:
-                VideoCamera.now = cur
-                VideoCamera.count += 1
-                current_time = cur.strftime("_%d_%m_%Y_%H_%M_%S")
-                cv2.imwrite("extract/camera_1_frame%s.jpg" % current_time, frame)  # save frame as JPEG file
-                path_on_cloud = "camera1/"+current_time+".jpg"
-                storage.child(path_on_cloud).put("extract/camera_1_frame%s.jpg" % current_time)
-                url = storage.child(path_on_cloud).get_url(user['idToken'])
-                data={current_time:url}
-                database.child("camera1").child(current_time).set(data)
-                os.remove("extract/camera_1_frame%s.jpg" % current_time)
-                print('Read a new frame: ', frame)
-
-        else:
-            VideoCamera.count = 0
-
-        # config.ALERT = False
-        # ------------------------------------------------------------------------------#'''
 
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()

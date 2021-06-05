@@ -1,0 +1,67 @@
+.stream
+{
+        background: url("loading_no_bg.gif") no-repeat center;
+        background-size: 300px;
+        height:400px;
+        width:800px;
+}
+
+.navbar
+{
+    position:relative;
+}
+
+.box
+{
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        height:100%;
+}
+
+.generate
+{
+     background-color: #008CBA;
+     border:none;
+     font-family: "Trebuchet MS";
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 18px;
+     margin-left: auto;
+     margin-right: 7%;
+}
+
+.generate:hover
+{
+     
+     opacity: 90%
+}
+
+.innerboxstream
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.innerboxbutton
+{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#map
+{
+    height: 400px;
+    width: 400px;
+}

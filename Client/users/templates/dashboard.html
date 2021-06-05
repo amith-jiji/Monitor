@@ -1,0 +1,77 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block link %}
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <div>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-lg">
+            <a class="navbar-brand col-sm-3 col-md-2 p-3 m-1" href="#" style="font-family: 'Trebuchet MS'">Social Distance Monitoring</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link p-2" href="{% url 'logout' %}" style="font-family: 'Trebuchet MS'">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators ">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+
+        <div class="carousel-inner" >
+            <div class="carousel-item active" style="background: #41107a">
+                <img src="https://i0.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/OH_COVID19_Symptoms_SocialAsset_Facebook.png?w=1200&ssl=1"  class="carousel-image" alt="Be Safe" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
+            </div>
+            <div class="carousel-item" style="background: #0d2074">
+                <img src="https://i1.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/5-Prevention.png?resize=1536%2C864&ssl=1" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
+            </div>
+            <div class="carousel-item" style="background :#05b69b; " >
+              <img  src="https://arogyakeralam.gov.in/wp-content/uploads/2020/04/iecintro.jpg" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
+            </div>
+            <div class="carousel-item" style="background :#95c4c9"  >
+                <img  src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v871batch2-sasi-presentation-02_1_2.jpg?w=1000&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d5b2c31acb8b13640cd378ac609d68d8" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
+              </div>
+            
+         </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-around p-2 mt-2" >
+                <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
+                    <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
+                    <div class="card-body" >
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera1.location }}</h5>
+                        <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                    </div>
+                </div>
+
+                <div class="card align-items-md-center" style="width: 15rem; height: 17rem; text-align: center; background: azure">
+                    <img src="{% static 'location.png' %}" style="width:12rem; height: 10rem;" class="card-img-top">
+                    <div class="card-body" >
+                        <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera2.location }}</h5>
+                        <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                    </div>
+                </div>
+    </div>
+{% endblock %}
