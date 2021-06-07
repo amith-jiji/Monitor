@@ -31,7 +31,7 @@
             <button class="generate " onclick="location.href='{% url 'report' id %}'">Generate Report</button>
         </div>
         <div class="innerboxstream">
-            <img class="stream" src="http://127.0.0.1:8000/camera1/video_feed_1">
+            <img class="stream" src="http://127.0.0.1:8000/camera{{ id }}/video_feed_{{ id }}">
             <div id="map"></div>
         </div>
     </div>
