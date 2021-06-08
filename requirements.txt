@@ -1,0 +1,7 @@
+numpy
+scipy
+imutils
+schedule
+pyrebase4
+opencv-python
+selenium

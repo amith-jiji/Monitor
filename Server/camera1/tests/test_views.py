@@ -1,0 +1,13 @@
+from django.test import Client, TestCase
+from django.urls import reverse
+
+
+class TestViews(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.index1_url = reverse('index1')
+
+    def test_indexView_GET(self):
+        response = self.client.get(self.index1_url)
+        self.assertEquals(response.status_code, 200)
