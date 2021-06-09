@@ -1,11 +1,10 @@
-from socialdistance.mylib import config, thread
-from socialdistance.mylib.mailer import Mailer
-from socialdistance.mylib.detection import detect_people
-from scipy.spatial import distance as dist
+import cv2
+import imutils
 import numpy as np
-import imutils, cv2, os, time, schedule
-from datetime import datetime
-from firebase_config import storage, database, user
+import os
+from scipy.spatial import distance as dist
+from socialdistance.mylib import config
+from socialdistance.mylib.detection import detect_people
 
 # load the COCO class labels our YOLO model was trained on
 labelsPath = os.path.sep.join([config.MODEL_PATH, "coco.names"])
@@ -29,9 +28,7 @@ ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 
-class VideoCamera1(object):
-    now = datetime.now()
-    count  = 0
+class VideoCamera(object):
 
     def __init__(self):
         self.flag = False
