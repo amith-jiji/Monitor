@@ -6,7 +6,7 @@ from django.urls import reverse
 class TestProjectLoginPage(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox(executable_path='functional_tests/geckodriver.exe')
+        self.browser = webdriver.Firefox(executable_path='drivers/geckodriver.exe')
         self.browser.get(self.live_server_url)
 
     def tearDown(self):
