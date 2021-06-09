@@ -28,32 +28,32 @@
          <div class="box">
             <div class="container border pl-3 pr-3 pt-4"  align="center" style="border-radius:7px; width:300px; height:300px; background: #e8e1d9">
 
-            <form action="{%url 'login' %}" method="post">
-                {% csrf_token %}
-                <br>
-                <!-- Enter Your Email: -->
-                
-                <label for="Email" style="font-family:  'Trebuchet MS'; font-size: 18px; text-align: left; float: left; margin-left: 19px;margin-bottom: 10px;">Email address</label>
-                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter Email" name="email" width="15px">
-                
-                <!-- Enter Your Password: -->
-                <br>
-                <label for="Password" style="font-family: 'Trebuchet MS'; font-size: 18px; text-align: left; float: left; margin-left: 20px; margin-bottom: 10px;  ">Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Enter Password" name="pass" width="15px">
-                <br>
-                <button class="btn-#0f6bb6"  type="submit" style="font-family: 'Trebuchet MS'; font-size: 16px">Login</button>
-                <br> <br>
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-danger" role="alert">
-                            <p style="color: red">{{ message }}</p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </form>
+                <form action="{%url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <br>
+                    <!-- Enter Your Email: -->
+
+                    <label for="Email" style="font-family:  'Trebuchet MS'; font-size: 18px; text-align: left; float: left; margin-left: 19px;margin-bottom: 10px;">Email address</label>
+                    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter Email" name="email" width="15px">
+
+                    <!-- Enter Your Password: -->
+                    <br>
+                    <label for="Password" style="font-family: 'Trebuchet MS'; font-size: 18px; text-align: left; float: left; margin-left: 20px; margin-bottom: 10px;  ">Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Enter Password" name="pass" width="15px">
+                    <br>
+                    <button class="btn-#0f6bb6"  type="submit" style="font-family: 'Trebuchet MS'; font-size: 16px">Login</button>
+                    <br> <br>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger" role="alert">
+                                <p style="color: red">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </form>
 
             </div>
-            </div>
+         </div>
 
         {% endblock %}
     </body>
