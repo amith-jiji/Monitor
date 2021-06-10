@@ -63,7 +63,7 @@
                         <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera1.location }}</h5>
                         <p style="margin-top: 15px">Latitude : {{ camera1.lat }}<sup>o</sup>N</p>
                         <p>Longitude : {{ camera1.lon }}<sup>o</sup>E</p>
-                        <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                        <a href="{% url 'camera' 1 %}" id="camera1-button" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                         <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera2.location }}</h5>
                         <p style="margin-top: 15px">Latitude : {{ camera2.lat }}<sup>o</sup>N</p>
                         <p>Longitude : {{ camera2.lon }}<sup>o</sup>E</p>
-                        <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                        <a href="{% url 'camera' 2 %}" id="camera2-button" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
     </div>
