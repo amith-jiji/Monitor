@@ -1,7 +1,7 @@
 {% extends 'index.html'%}
 {% load static %}
 
-{% block title %} Camera {{ id }} {% endblock %}
+{% block title %} Camera {% endblock %}
 
 {% block link %}
         <link rel="stylesheet" type="text/css" href="{% static 'camera.css' %}">
@@ -31,7 +31,7 @@
             <button class="generate " onclick="location.href='{% url 'report' id %}'">Generate Report</button>
         </div>
         <div class="innerboxstream">
-            <img class="stream" src="http://127.0.0.1:8000/camera{{ id }}/video_feed_{{ id }}">
+            <img class="stream" src="http://127.0.0.1:8000/camera{{ id }}">
             <div id="map"></div>
         </div>
     </div>

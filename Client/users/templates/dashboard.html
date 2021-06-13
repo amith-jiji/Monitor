@@ -32,18 +32,17 @@
 
         <div class="carousel-inner" >
             <div class="carousel-item active" style="background: #41107a">
-                <img src="https://i0.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/OH_COVID19_Symptoms_SocialAsset_Facebook.png?w=1200&ssl=1"  class="carousel-image" alt="Be Safe" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
+                <img src="{% static 'carousel_images/image_1.png' %}"  class="carousel-image" alt="Be Safe" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
             </div>
             <div class="carousel-item" style="background: #0d2074">
-                <img src="https://i1.wp.com/www.sixteen-nine.net/wp-content/uploads/2020/03/5-Prevention.png?resize=1536%2C864&ssl=1" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
+                <img src="{% static 'carousel_images/image_2.png' %}" class="carousel-image" height="370px" alt="Be Supportive" class="carousel-image d-block w-65 ">
             </div>
             <div class="carousel-item" style="background :#05b69b; " >
-              <img  src="https://arogyakeralam.gov.in/wp-content/uploads/2020/04/iecintro.jpg" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
+                <img  src="{% static 'carousel_images/image_3.png' %}" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
             </div>
             <div class="carousel-item" style="background :#95c4c9"  >
-                <img  src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v871batch2-sasi-presentation-02_1_2.jpg?w=1000&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d5b2c31acb8b13640cd378ac609d68d8" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
+                <img  src="{% static 'carousel_images/image_4.png' %}" height="370px" class="carousel-image d-block w-65 "  alt="Be Ready">
               </div>
-            
          </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -64,7 +63,7 @@
                         <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera1.location }}</h5>
                         <p style="margin-top: 15px">Latitude : {{ camera1.lat }}<sup>o</sup>N</p>
                         <p>Longitude : {{ camera1.lon }}<sup>o</sup>E</p>
-                        <a href="{% url 'camera' 1 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                        <a href="{% url 'camera' 1 %}" id="camera1-button" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
 
@@ -74,7 +73,7 @@
                         <h5 class="card-title" style="font-family: 'Trebuchet MS';font-size: 17px">{{ camera2.location }}</h5>
                         <p style="margin-top: 15px">Latitude : {{ camera2.lat }}<sup>o</sup>N</p>
                         <p>Longitude : {{ camera2.lon }}<sup>o</sup>E</p>
-                        <a href="{% url 'camera' 2 %}" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
+                        <a href="{% url 'camera' 2 %}" id="camera2-button" class="btn btn-primary mt-2 camera-button"><span>Go to Feed</span></a>
                     </div>
                 </div>
     </div>

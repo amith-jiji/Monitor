@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http.response import StreamingHttpResponse
 from feed.camera1 import Camera1
 from feed.camera2 import Camera2
 import threading
@@ -14,4 +13,4 @@ def indexView(request):
     t2.setDaemon(True)
     t1.start()
     t2.start()
-    return render(request, 'home3.html')
+    return render(request, 'home.html')

@@ -42,7 +42,7 @@ def loginView(request):
     return render(request, 'index.html')
 
 
-def logout(request):
+def logoutView(request):
     try:
         del request.session['uid']
     except:
@@ -65,4 +65,4 @@ def reportView(request, id):
         data = {}
     else:
         data = [('/'.join(i[0][:10].split('_')), ':'.join(i[0][11:].split('_')), i[1][i[0]]) for i in data]
-    return render(request, 'report.html', {'id': id, 'data': data})
+    return render(request, 'report.html', {'id': id, 'data': data, 'metadata': metadata['camera' + str(id)]})

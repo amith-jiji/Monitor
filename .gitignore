@@ -8,3 +8,4 @@ db.sqlite3
 Server/socialdistance/yolo/yolov3.weights
 /static
 .DS_Store
+Client/geckodriver.log
